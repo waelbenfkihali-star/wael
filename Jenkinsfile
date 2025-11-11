@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Cloner le dépôt') {
             steps {
-                git url: 'https://github.com/Zayneeb/projetJenkins.git', branch: 'main'
+                git url: 'https://github.com/waelbenfkihali-star/wael.git', branch: 'main'
             }
         }
 
