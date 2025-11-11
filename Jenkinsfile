@@ -1,45 +1,39 @@
 pipeline {
     agent any
     options { timestamps() }
-
     stages {
-        stage('Cloner le dépôt') {
+        stage('Clone repository') {
             steps {
                 git url: 'https://github.com/waelbenfkihali-star/wael.git', branch: 'main'
             }
         }
-
-        stage('Étape 1 : Vérification du dépôt') {
+        stage('Step 1: Check repository status') {
             steps {
-                bat 'echo === Étape 1 : Vérification du dépôt ==='
+                bat 'echo === Step 1: Checking repository ==='
                 bat 'git status'
             }
         }
-
-        stage('Étape 2 : Afficher le contenu du projet') {
+        stage('Step 2: Show project content') {
             steps {
-                bat 'echo === Étape 2 : Afficher le contenu du projet ==='
+                bat 'echo === Step 2: Showing project files ==='
                 bat 'dir'
             }
         }
-
-        stage('Étape 3 : Simuler un déploiement local') {
+        stage('Step 3: Simulate local deployment') {
             steps {
-                bat 'echo === Étape 3 : Simuler un déploiement local ==='
-                bat 'echo Le fichier index.html est prêt à être affiché'
+                bat 'echo === Step 3: Simulating local deployment ==='
+                bat 'echo index.html is ready to be displayed'
             }
         }
-
-        stage('Étape 4 : Fin du build') {
+        stage('Step 4: Build finished') {
             steps {
-                bat 'echo === Étape 4 : Fin du build ==='
+                bat 'echo === Step 4: Build complete ==='
                 bat 'echo SUCCESS'
             }
         }
     }
-
     post {
-        success { echo '✅ Build OK' }
-        failure { echo '❌ Build KO' }
+        success { echo 'Build OK ✅' }
+        failure { echo 'Build KO ❌' }
     }
 }
